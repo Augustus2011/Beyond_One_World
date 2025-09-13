@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  label_platform1:
+    build: .
+    container_name: label_platform1
+    volumes:
+      - label_data:/app
+    ports:
+      - "8501:8501"
+    command: ["python", "-m", "streamlit", "run", "label_platform1.py", "--server.port=8501", "--server.address=0.0.0.0"]
+
+  label_platform2:
+    build: .
+    container_name: label_platform2
+    volumes:
+      - label_data:/app
+    ports:
+      - "8502:8501"
+    command: ["python", "-m", "streamlit", "run", "label_platform2.py", "--server.port=8501", "--server.address=0.0.0.0"]
+
+volumes:
+  label_data:
