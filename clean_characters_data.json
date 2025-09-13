@@ -1,0 +1,893 @@
+[
+  {
+    "UID": 1,
+    "Name": "Tony Stark “Iron Man”",
+    "CID": 1,
+    "Source": [
+      "MCU: The Heroes",
+      "avengers endgame(2019)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 1,
+    "Name": "Tony Stark “Iron Man”",
+    "CID": 2,
+    "Source": [
+      "Marvel Comics",
+      "earth 616"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 1,
+    "Name": "Tony Stark “Iron Man”",
+    "CID": 3,
+    "Source": [
+      "What If...? SS1 Ep 6",
+      "What If... Killmonger Rescued Tony Stark?"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 2,
+    "Name": "Peter Parker \"Spider-Man\"",
+    "CID": 4,
+    "Source": [
+      "MCU: The Heroes",
+      "spider man no way home (2021)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 2,
+    "Name": "Peter Parker \"Spider-Man\"",
+    "CID": 5,
+    "Source": [
+      "MCU: The Heroes",
+      "The Amazing Spider-Man 2 (2014)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 2,
+    "Name": "Peter Parker \"Spider-Man\"",
+    "CID": 6,
+    "Source": [
+      "MCU: The Heroes",
+      "spider man (2007)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 3,
+    "Name": "Steve Rogers \"Captain America\"",
+    "CID": 7,
+    "Source": [
+      "MCU: The Heroes",
+      "avengers endgame (2019)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 3,
+    "Name": "Steve Rogers “Captain America”",
+    "CID": 8,
+    "Source": [
+      "Marvel Comics",
+      "earth 616"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 3,
+    "Name": "Steve Rogers “Captain America”",
+    "CID": 9,
+    "Source": [
+      "Animated Series",
+      "X-Men(1993): The Animated Series S2E04"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 4,
+    "Name": "Thor Odinson \"Thor\"",
+    "CID": 10,
+    "Source": [
+      "MCU: The Heroes",
+      "thor love and thunder(2022)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 4,
+    "Name": "Thor Odinson \"Thor\"",
+    "CID": 11,
+    "Source": [
+      "Marvel Comics",
+      "earth 616"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 4,
+    "Name": "Thor Odinson \"Thor\"",
+    "CID": 12,
+    "Source": [
+      "What If...? SS1 Ep 7",
+      "What If... Thor Were an Only Child?"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 5,
+    "Name": "Dr.Robert Bruce Banner \"Hulk\"",
+    "CID": 13,
+    "Source": [
+      "MCU: The Heroes",
+      "she hulk(2022)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 5,
+    "Name": "Dr.Robert Bruce Banner \"Hulk\"",
+    "CID": 14,
+    "Source": [
+      "Marvel Comics",
+      "earth 616"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 5,
+    "Name": "Dr.Robert Bruce Banner \"Hulk\"",
+    "CID": 15,
+    "Source": [
+      "Universal Pictures",
+      "Hulk (2003)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 6,
+    "Name": "Matt Murdock \"Daredevil\"",
+    "CID": 16,
+    "Source": [
+      "Marvel TV series",
+      "Daredevil (2018)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 6,
+    "Name": "Matt Murdock \"Daredevil\"",
+    "CID": 17,
+    "Source": [
+      "Marvel Comics",
+      "earth 616"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 6,
+    "Name": "Matt Murdock \"Daredevil\"",
+    "CID": 18,
+    "Source": [
+      "20th Century Fox",
+      "Daredevil (2003)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 7,
+    "Name": "Peter Quill \"Star-Lord\"",
+    "CID": 19,
+    "Source": [
+      "MCU: The Heroes",
+      "guardians of the galaxy (2023)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 7,
+    "Name": "Peter Quill “Star-Lord”",
+    "CID": 20,
+    "Source": [
+      "Marvel Comics",
+      "earth 616"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 7,
+    "Name": "Peter Quill “Star-Lord”",
+    "CID": 21,
+    "Source": "[\"marvel game\",\"Marvel\"s Guardians of the Galaxy (2021)\"]",
+    "Events": {}
+  },
+  {
+    "UID": 8,
+    "Name": "Natasha Romanoff “Black Widow”",
+    "CID": 22,
+    "Source": [
+      "Marvel Comics",
+      "earth 616"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 8,
+    "Name": "Natasha Romanoff \"Black Widow\"",
+    "CID": 23,
+    "Source": [
+      "MCU: The Heroes",
+      "Black Widow (2021)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 8,
+    "Name": "Natasha Romanoff \"Black Widow\"",
+    "CID": 24,
+    "Source": [
+      "What If...? SS1 Ep 3",
+      "What If... The World Lost Its Mightiest Heroes?"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 9,
+    "Name": "Stephen Strange \"Doctor Strange\"",
+    "CID": 25,
+    "Source": [
+      "MCU: The Heroes",
+      "Doctor Strange in the Multiverse of Madness (2022)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 9,
+    "Name": "Stephen Strange “Doctor Strange”",
+    "CID": 26,
+    "Source": [
+      "Marvel Comics",
+      "earth 616"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 9,
+    "Name": "Steven Strange  “Doctor Strange” ",
+    "CID": 27,
+    "Source": [
+      "Universal Television",
+      "Dr. Strange (1978)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 9,
+    "Name": "Clint Barton “Hawkeye”",
+    "CID": 28,
+    "Source": [
+      "MCU: The Heroes",
+      "Marvel Cinematic Universe television series",
+      "Hawkeye (2021)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 10,
+    "Name": "Clint Barton “Hawkeye”",
+    "CID": 29,
+    "Source": [
+      "Marvel Comics",
+      "earth 616"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 10,
+    "Name": "Clint Barton \"Hawkeye\"",
+    "CID": 30,
+    "Source": [
+      "What If...? SS1 Ep 3",
+      "What If... The World Lost Its Mightiest Heroes?"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 11,
+    "Name": "King T’Challa “Black Panther”",
+    "CID": 31,
+    "Source": [
+      "MCU: The Heroes",
+      "Black Panther (2018)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 11,
+    "Name": "T’Challa “Black Panther”",
+    "CID": 32,
+    "Source": [
+      "Marvel Comics",
+      "earth 616"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 11,
+    "Name": "T'Challa \"Black Panther\"",
+    "CID": 33,
+    "Source": "[\"What If...? SS1 Ep 2\",\"What If... T\"Challa Became a Star-Lord?\"]",
+    "Events": {}
+  },
+  {
+    "UID": 12,
+    "Name": "Scott Lang \"Ant-Man\"",
+    "CID": 34,
+    "Source": [
+      "Marvel Comics",
+      "earth 616"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 12,
+    "Name": "Scott Lang \"Ant-Man\"",
+    "CID": 35,
+    "Source": [
+      "MCU: The Heroes",
+      "Ant-Man and the Wasp: Quantumania(2023)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 12,
+    "Name": "Scott Lang “Ant-Man”",
+    "CID": 36,
+    "Source": [
+      "What If...?  SS 2 Episode 8",
+      "What If... The Avengers Assembled in 1602?"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 13,
+    "Name": "Johnny Storm \"Human Torch\"",
+    "CID": 37,
+    "Source": [
+      "MCU: The Heroes",
+      "Deadpool & Wolverine (2024)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 13,
+    "Name": "Johnny Storm \"Human Torch\"",
+    "CID": 38,
+    "Source": [
+      "Marvel Comics",
+      "earth 616"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 13,
+    "Name": "Johnny Storm  \"Human Torch\"",
+    "CID": 39,
+    "Source": [
+      "20th Century Fox",
+      "Fantastic Four (2015)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 14,
+    "Name": "Rocket Raccoon",
+    "CID": 40,
+    "Source": [
+      "MCU: The Heroes",
+      "guardians of the galaxy (2023)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 14,
+    "Name": "Rocket Raccoon",
+    "CID": 41,
+    "Source": [
+      "Marvel Comics",
+      "earth 616"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 14,
+    "Name": "Rocket Raccoon",
+    "CID": 42,
+    "Source": "[\"Marvel Animated Universe\",\"The Avengers: Earth\"s Mightiest Heroes (2010)\"]",
+    "Events": {}
+  },
+  {
+    "UID": 15,
+    "Name": "Sam Wilson “Captain America”",
+    "CID": 43,
+    "Source": [
+      "MCU: The Heroes",
+      "Captain America: Brave New World (2025)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 15,
+    "Name": "Sam Wilson \"Captain America\"",
+    "CID": 44,
+    "Source": [
+      "Marvel Comics",
+      "earth 616"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 15,
+    "Name": "Samuel Wilson \"falcon\"",
+    "CID": 45,
+    "Source": [
+      "Marvel Comics",
+      "earth 1610"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 16,
+    "Name": "Kal-El \"Superman\"",
+    "CID": 46,
+    "Source": [
+      "DC Comics",
+      "Mainstream Universe‎‎",
+      "1986-present"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 16,
+    "Name": "Clark Kent “Superman”",
+    "CID": 47,
+    "Source": [
+      "DC Extended Universe",
+      "justice league snyder cut (2017)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 16,
+    "Name": "ClarkKent \"Superman\"",
+    "CID": 48,
+    "Source": [
+      "DC Animated Universe (Timmverse/Deniverse)",
+      "Justice League (2001)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 17,
+    "Name": "Bruce Wayne \"Batman\"",
+    "CID": 49,
+    "Source": [
+      "DC Extended Universe",
+      "The Flash (2023)",
+      "justice league snyder cut (2017)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 17,
+    "Name": "Bruce Wayne \"Batman\"",
+    "CID": 50,
+    "Source": [
+      "DC Extended Universe",
+      "The Dark Knight Trilogy (2005)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 17,
+    "Name": "Bruce Wayne “Batman”",
+    "CID": 51,
+    "Source": [
+      "DC Extended Universe",
+      "The Batman  (2022)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 18,
+    "Name": "Diana Prince “Wonder Woman”",
+    "CID": 52,
+    "Source": [
+      "DC Extended Universe",
+      "The Flash (2023)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 18,
+    "Name": "Diana Prince \"Wonder Woman\"",
+    "CID": 53,
+    "Source": [
+      "DC Animated Universe (Timmverse/Deniverse)",
+      "Justice League (2001)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 18,
+    "Name": "Diana Prince \"Wonder Woman\"",
+    "CID": 54,
+    "Source": [
+      "DC Comics",
+      "Mainstream Universe‎‎ 2011‎-present"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 19,
+    "Name": "Barry Allen “The Flash”",
+    "CID": 55,
+    "Source": [
+      "DC Extended Universe",
+      "The Flash (2023)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 19,
+    "Name": "Barry Allen \"The Flash\"",
+    "CID": 56,
+    "Source": [
+      "Arrowverse",
+      "earth1",
+      "The Flash (2014)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 19,
+    "Name": "Barry Allen (Earth-2)",
+    "CID": 57,
+    "Source": [
+      "Arrowverse",
+      "earth2",
+      "The Flash (2014)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 20,
+    "Name": "Arthur Curry “Aquaman”",
+    "CID": 58,
+    "Source": [
+      "DC Extended Universe",
+      "The Flash (2023)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 20,
+    "Name": "Arthur Curry “Aquaman”",
+    "CID": 59,
+    "Source": [
+      "DC Comics",
+      "Mainstream Universe‎‎ 2011‎-present"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 20,
+    "Name": "Arthur Curry \"Aquaman\"",
+    "CID": 60,
+    "Source": [
+      "animated television series ",
+      "Batman: The Brave and the Bold (2008)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 21,
+    "Name": "Victor Stone \"Cyborg\"",
+    "CID": 61,
+    "Source": [
+      "DC Comics",
+      "Mainstream Universe‎‎ 2011‎-present"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 21,
+    "Name": "Victor Stone \"Cyborg\"",
+    "CID": 62,
+    "Source": [
+      "DC Extended Universe",
+      "The Flash (2023)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 21,
+    "Name": "Victor Stone \"Cyborg\"",
+    "CID": 63,
+    "Source": [
+      "DC Animated Universe",
+      "Teen Titans (2003)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 22,
+    "Name": "Hal Jordan \"Green Lantern\"",
+    "CID": 64,
+    "Source": [
+      "DC Comics",
+      "Mainstream Universe‎‎ 2011‎-present"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 22,
+    "Name": "Hal Jordan \"Green Lantern\"",
+    "CID": 65,
+    "Source": [
+      "DC Extended Universe",
+      "Green Lantern(2011)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 22,
+    "Name": "Hal Jordan \"Green Lantern\"",
+    "CID": 66,
+    "Source": [
+      "DC Animated Universe (Timmverse/Deniverse)",
+      "Justice League (2001)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 23,
+    "Name": "Oliver Queen \"Green Arrow\"",
+    "CID": 67,
+    "Source": [
+      "DC Animated Universe (Timmverse/Deniverse)",
+      "Justice League (2001)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 23,
+    "Name": "Oliver Queen \"Green Arrow\"",
+    "CID": 68,
+    "Source": [
+      "Arrowverse",
+      "Arrow season 8 (2020)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 23,
+    "Name": "Oliver Queen \"Green Arrow\"",
+    "CID": 69,
+    "Source": [
+      "DC Comics",
+      "Mainstream Universe‎‎ 2011‎-present"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 24,
+    "Name": "J'onn J'onzz \"Martian Manhunter\"",
+    "CID": 70,
+    "Source": [
+      "DC Animated Universe (Timmverse/Deniverse)",
+      "Justice League (2001)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 24,
+    "Name": "J'onn J'onzz \"Martian Manhunter\"",
+    "CID": 71,
+    "Source": [
+      "Arrowverse",
+      "earth38",
+      "Supergirl (2015)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 24,
+    "Name": "J’onn J’onnz “Martian Manhunter”",
+    "CID": 72,
+    "Source": [
+      "DC Comics",
+      "Mainstream Universe‎ 1986‎-2011‎"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 25,
+    "Name": "Kent Nelson \"Doctor Fate\"",
+    "CID": 73,
+    "Source": [
+      "DC Extended Universe",
+      "Black Adam (2022)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 25,
+    "Name": "Kent Nelson \"Doctor Fate\"",
+    "CID": 74,
+    "Source": [
+      "DC Animated Universe (Timmverse/Deniverse)",
+      "Justice League (2001)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 25,
+    "Name": "Kent Nelson \"Doctor Fate\"",
+    "CID": 75,
+    "Source": [
+      "DC Comics",
+      "Mainstream Universe‎‎ 1930s-2011‎"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 26,
+    "Name": "Kara Zor-El \"Supergirl\"",
+    "CID": 76,
+    "Source": [
+      "DC Comics",
+      "Mainstream Universe‎‎ 2011‎-present"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 26,
+    "Name": "Kara Zor-El \"Supergirl\"",
+    "CID": 77,
+    "Source": [
+      "DC Extended Universe",
+      "The Flash (2023)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 26,
+    "Name": "Kara Zor-El \"Supergirl\"",
+    "CID": 78,
+    "Source": [
+      "Arrowverse",
+      "earth38",
+      "Supergirl (2015)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 27,
+    "Name": "John Constantine",
+    "CID": 79,
+    "Source": [
+      "DC Comics",
+      "Mainstream Universe‎‎ 2011‎-present"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 27,
+    "Name": "John Constantine",
+    "CID": 80,
+    "Source": [
+      "Constantine (2014)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 27,
+    "Name": "John Constantine",
+    "CID": 81,
+    "Source": [
+      "DC Animated Universe (Timmverse/Deniverse)",
+      "Constantine: City of Demons (2018)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 28,
+    "Name": "Jaime Reyes  \"Blue Beetle\"",
+    "CID": 82,
+    "Source": [
+      "DC Comics",
+      "Mainstream Universe‎ 1986‎-2011‎"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 28,
+    "Name": "Jaime Reyes  \"Blue Beetle\"",
+    "CID": 83,
+    "Source": [
+      "DC Extended Universe",
+      "Blue Beetle (2023)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 28,
+    "Name": "Jaime Reyes  \"Blue Beetle\"",
+    "CID": 84,
+    "Source": "[\"\"DC Animated Universe\",\"Young Justice (2010)\"]",
+    "Events": {}
+  },
+  {
+    "UID": 29,
+    "Name": "Barbara Gordon \"Batgirl\"",
+    "CID": 85,
+    "Source": [
+      "DC Comics",
+      "Mainstream Universe‎‎ 2011‎-present"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 29,
+    "Name": "Barbara Gordon \"Batgirl\"",
+    "CID": 86,
+    "Source": [
+      "Harley Quinn (2019)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 29,
+    "Name": "Barbara Gordon \"Batgirl\"",
+    "CID": 87,
+    "Source": [
+      "DC Animated Universe",
+      "Batman: The Animated Series (1992)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 30,
+    "Name": " Koriand'r \"Starfire\"",
+    "CID": 88,
+    "Source": [
+      "Teen Titans (2003)"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 30,
+    "Name": " Koriand'r \"Starfire\"",
+    "CID": 89,
+    "Source": [
+      "DC Comics",
+      "Mainstream Universe‎‎ 1950s-2011‎"
+    ],
+    "Events": {}
+  },
+  {
+    "UID": 30,
+    "Name": " Koriand'r \"Starfire\"",
+    "CID": 90,
+    "Source": [
+      "Teen Titans Go!(2013)"
+    ],
+    "Events": {}
+  }
+]

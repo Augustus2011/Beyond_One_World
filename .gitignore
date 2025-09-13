@@ -1,10 +1,7 @@
 .env
 *.pyc
-*.json
-*.jsonl
 venv
 *.ipynb
-*.csv
 __pycache__
 *.txt
 generate_answer_og.py

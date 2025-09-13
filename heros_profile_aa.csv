@@ -1,0 +1,451 @@
+UID,Name,CID,Source,Attributes
+1,Tony Stark “Iron Man”,1,"['MCU: The Heroes','avengers endgame(2019)']","Age:53,
+Power:Powered armor suit,
+Mbti:ENTP,
+Race:Human,
+Enneagram:7w8"
+1,Tony Stark “Iron Man”,2,"['Marvel Comics', 'earth 616'] ","Age:Mid-30s,
+Power:Powered armor suit,
+Mbti:ENTP,
+Race:Human,
+Enneagram:7w8"
+1,Tony Stark “Iron Man”,3,"['What If...? SS1 Ep 6','What If... Killmonger Rescued Tony Stark?']","Age:39,
+Power:-,
+Mbti:ENTP,
+Race:Human,
+Enneagram:7w8"
+2,"Peter Parker ""Spider-Man""",4,"['MCU: The Heroes', 'spider man no way home (2021)']","Age:17,
+Power:Spider power,
+Mbti:ENFP,
+Race:Human,
+Enneagram:6w7"
+2,"Peter Parker ""Spider-Man""",5,"['MCU: The Heroes','The Amazing Spider-Man 2 (2014)']","Age:18,
+Power:Spider power,
+Mbti:ISTP,
+Race:Human,
+Enneagram:5w4"
+2,"Peter Parker ""Spider-Man""",6,"['MCU: The Heroes','spider man (2007)']","Age:23,
+Power:Spider power,
+Mbti:INFP,
+Race:Human,
+Enneagram:9w1"
+3,"Steve Rogers ""Captain America""",7,"['MCU: The Heroes', 'avengers endgame (2019)']","Age:90s,
+Power:Super-soldier serum,
+Mbti:ISFJ,
+Race:Human,
+Enneagram:1w2"
+3,Steve Rogers “Captain America”,8,"['Marvel Comics','earth 616']","Age:107,
+Power:Super-soldier serum,
+Mbti:ISFJ,
+Race:Human,
+Enneagram:1w2"
+3,Steve Rogers “Captain America”,9,"['Animated Series','X-Men(1993): The Animated Series S2E04']","Age:71,
+Power:Super-soldier serum,
+Mbti:ISFJ,
+Race:Human,
+Enneagram:1w2"
+4,"Thor Odinson ""Thor""",10,"['MCU: The Heroes','thor love and thunder(2022)']","Age:around 1,500 ,
+Power:Thunder god,
+Mbti:ESTP,
+Race:Asgardians,
+Enneagram:7w8"
+4,"Thor Odinson ""Thor""",11,"['Marvel Comics','earth 616']","Age:around 4,000,
+Power:Thunder god,
+Mbti:ESTP,
+Race:Asgardians,
+Enneagram:3w4"
+4,"Thor Odinson ""Thor""",12,"['What If...? SS1 Ep 7','What If... Thor Were an Only Child?']","Age:around 1,500,
+Power:Thunder god,
+Mbti:ESFP,
+Race:Asgardians,
+Enneagram:7w8"
+5,"Dr.Robert Bruce Banner ""Hulk""",13,"['MCU: The Heroes','she hulk(2022)']","Age:52,
+Power:Gamma rays, 
+Mbti:ISFP,
+Race:Mutant human, 
+Enneagram:8w7"
+5,"Dr.Robert Bruce Banner ""Hulk""",14,"['Marvel Comics', 'earth 616']","Age:Mid-40s,
+Power:Gamma rays, 
+Mbti:INTP,
+Race:Mutant human, 
+Enneagram:5w4"
+5,"Dr.Robert Bruce Banner ""Hulk""",15,"['Universal Pictures','Hulk (2003)']","Age:34,
+Power:Gamma rays, 
+Mbti:INTP,
+Race:Mutant human, 
+Enneagram:5w6"
+6,"Matt Murdock ""Daredevil""",16,"['Marvel TV series','Daredevil (2018)']","Age:32,
+Power: Heightened senses,
+Mbti:INFJ,
+Race:Human,
+Enneagram:1w2"
+6,"Matt Murdock ""Daredevil""",17,"['Marvel Comics', 'earth 616']","Age:37,
+Power: Heightened senses,
+Mbti:INTJ,
+Race:Human,
+Enneagram:5w6"
+6,"Matt Murdock ""Daredevil""",18,"['20th Century Fox','Daredevil (2003)']","Age:30,
+Power: Heightened senses,
+Mbti:INTJ,
+Race:Human,
+Enneagram:1w9"
+7,"Peter Quill ""Star-Lord""",19,"['MCU: The Heroes', 'guardians of the galaxy (2023)']","Age:45,
+Power: Cosmic Energy Manipulation,
+Mbti:ESFP,
+Race:Half Human and Celestial, 
+Enneagram:7w6"
+7,Peter Quill “Star-Lord”,20,"['Marvel Comics', 'earth 616']","Age:mid-to-late 30s,
+Power: Cosmic Energy Manipulation,
+Mbti:ENFP,
+Race:Half Human and Celestial, 
+Enneagram:7w6"
+7,Peter Quill “Star-Lord”,21,"['marvel game','Marvel's Guardians of the Galaxy (2021)']","Age:35,
+Power: Cosmic Energy Manipulation,
+Mbti:ENFP,
+Race:Half Human and Celestial, 
+Enneagram:7w6"
+8,Natasha Romanoff “Black Widow”,22,"['Marvel Comics','earth 616']","Age: around 90–95,
+Power:Peak Physical and combat skill,
+Mbti:ISTP,
+Race:Human,
+Enneagram:6w5"
+8,"Natasha Romanoff ""Black Widow""",23,"['MCU: The Heroes','Black Widow (2021)']","Age:32-36,
+Power:Peak Physical and combat skill,
+Mbti:ISTP,
+Race:Human,
+Enneagram:6w5"
+8,"Natasha Romanoff ""Black Widow""",24,"['What If...? SS1 Ep 3','What If... The World Lost Its Mightiest Heroes?']","Age:26,
+Power:Peak Physical and combat skill,
+Mbti:ISTP,
+Race:Human,
+Enneagram:6w5"
+9,"Stephen Strange ""Doctor Strange""",25,"['MCU: The Heroes','Doctor Strange in the Multiverse of Madness (2022)']","Age:Mid-40s,
+Power:Magic,
+Mbti:INTJ,
+Race:Human,
+Enneagram:5w6"
+9,Stephen Strange “Doctor Strange”,26,"['Marvel Comics','earth 616']","Age:Mid-40s to early 60s,
+Power:Magic,
+Mbti:INTJ,
+Race:Human,
+Enneagram:5w6"
+9,Steven Strange  “Doctor Strange” ,27,"['Universal Television','Dr. Strange (1978)']","Age:early to mid-30s.,
+Power:Magic,
+Mbti:ENFP,
+Race:Human,
+Enneagram:1w2"
+10,Clint Barton “Hawkeye”,28,"['MCU: The Heroes','Marvel Cinematic Universe television series','Hawkeye (2021)']","Age:early to mid-40s,
+Power:Master Archer,
+Mbti:ISTP,
+Race:Human,
+Enneagram:9w8"
+10,Clint Barton “Hawkeye”,29,"['Marvel Comics','earth 616']","Age:mid-30s to early 40s,
+Power:Master Archer,
+Mbti:ESTP,
+Race:Human,
+Enneagram:7w8"
+10,"Clint Barton ""Hawkeye""",30,"['What If...? SS1 Ep 3','What If... The World Lost Its Mightiest Heroes?']","Age:late 30s to early 40s,
+Power:Master Archer,
+Mbti:ISTP,
+Race:Human,
+Enneagram:9w8"
+11,King T’Challa “Black Panther”,31,"['MCU: The Heroes', 'Black Panther (2018)']","Age:early to mid-30s,
+Power: heart-shaped herb,
+Mbti:ISFJ,
+Race:Human,
+Enneagram:1w9"
+11,T’Challa “Black Panther”,32,"['Marvel Comics', 'earth 616']","Age:early to mid-30s
+Power:heart-shaped herb,
+Mbti:INTJ,
+Race:Human,
+Enneagram:1w9"
+11,"T'Challa ""Black Panther""",33,"['What If...? SS1 Ep 2','What If... T'Challa Became a Star-Lord?']","Age: late 30s,
+Power:Master Combatant,
+Mbti:ISTJ,
+Race:Human,
+Enneagram:1w9"
+12,"Scott Lang ""Ant-Man""",34,"['Marvel Comics','earth 616']","Age:late 30s to early 40s,
+Power:Size Manipulation,
+Mbti:ENTP,
+Race:Human,
+Enneagram:6w7"
+12,"Scott Lang ""Ant-Man""",35,"['MCU: The Heroes','Ant-Man and the Wasp: Quantumania(2023)']","Age:39
+Power:Size Manipulation,
+Mbti:ENTP,
+Race:Human,
+Enneagram:7w6"
+12,Scott Lang “Ant-Man”,36,"['What If...?  SS 2 Episode 8','What If... The Avengers Assembled in 1602?']","Age:mid to late 30s,
+Power:Size Manipulation,
+Mbti:ENTP,
+Race:Human,
+Enneagram:7w6"
+13,"Johnny Storm ""Human Torch""",37,"['MCU: The Heroes','Deadpool & Wolverine (2024)']","Age:mid to late 30s,
+Power:Control fire,
+Mbti:ESTP,
+Race:Human
+Enneagram:7w8"
+13,"Johnny Storm ""Human Torch""",38,"['Marvel Comics', 'earth 616']","Age:Mid-20s
+Power:Control Fire.
+Mbti:ESFP,
+Race:Human,
+Enneagram:7w8"
+13,"Johnny Storm  ""Human Torch""",39,"['20th Century Fox','Fantastic Four (2015)']","Age:Early 20s,
+Power:Conrol fire,
+Mbti:ESTP,
+Race:Human,
+Enneagram:7w8"
+14,Rocket Raccoon,40,"['MCU: The Heroes','guardians of the galaxy (2023)']","Age:early 20s by human standard
+Power:Expert Engineer and Pilot,
+Mbti:ESTP,
+Race:Halfworlder,
+Enneagram:8w7"
+14,Rocket Raccoon,41,"['Marvel Comics', 'earth 616']","Age: middle-aged by raccoon standards
+Power:Expert Engineer and Pilot,
+Mbti:ESTP,
+Race:Halfworlder,
+Enneagram:7w8"
+14,Rocket Raccoon,42,"['Marvel Animated Universe','The Avengers: Earth's Mightiest Heroes (2010)']","Age: 30s by human standard
+Power:Expert Engineer and Pilot,
+Mbti:ENTP,
+Race:Halfworlder,
+Enneagram:7w8"
+15,Sam Wilson “Captain America”,43,"['MCU: The Heroes','Captain America: Brave New World (2025)']","Age:47,
+Power:Combat skill (Wingsuit & Captain America's Shield:),
+Mbti:ESFP,
+Race:Human,
+Enneagram:6w7"
+15,"Sam Wilson ""Captain America""",44,"['Marvel Comics', 'earth 616']","Age:mid-to-late 30s,
+Power:Combat skill (Mechanical Wings & Captain America's Shield:),
+Mbti:ISFP,
+Race:Human,
+Enneagram:1w9"
+15,"Samuel Wilson ""falcon""",45,"['Marvel Comics', 'earth 1610']","Age:late 30s to early 40s,
+Power:Combat skill(Mechanical Wings),
+Race:Human,
+Mbti:ISFP,
+Enneagram:6w5"
+16,"Kal-El ""Superman""",46,"['DC Comics', 'Mainstream Universe', '1986-present']","Age:early 30s,
+Power:Super Physical,
+Race:Kryptonian,
+Mbti:ISFJ,
+Enneagram:9w1"
+16,Clark Kent “Superman”,47,"['DC Extended Universe', 'justice league snyder cut (2017)']","Age:41,
+Power:Super Physical,
+Race:Kryptonian,
+Mbti:ISFJ,
+Enneagram:2w1"
+16,"ClarkKent ""Superman""",48,"['DC Animated Universe (Timmverse/Deniverse)','Justice League (2001)']","Age:mid-20s,
+Power:Super Physical,
+Race:Kryptonian,
+Mbti:ISFJ,
+Enneagram:6w5"
+17,"Bruce Wayne ""Batman""",49,"['DC Extended Universe', 'The Flash (2023)','justice league snyder cut (2017)']","Age:53,
+Power:Combat skill,
+Race:Human,
+Mbti:INTJ,
+Enneagram:6w5"
+17,"Bruce Wayne ""Batman""",50,"['DC Extended Universe','The Dark Knight Trilogy (2005)']","Age:44,
+Power:Combat skill,
+Race:Human,
+Mbti:INTJ,
+Enneagram:1w9"
+17,Bruce Wayne “Batman”,51,"['DC Extended Universe','The Batman  (2022)']","Age:around 30,
+Power:Combat skill,
+Race:Human,
+Mbti:INTJ,
+Enneagram:1w9"
+18,Diana Prince “Wonder Woman”,52,"['DC Extended Universe','The Flash (2023)']","Age:Over 5,000,
+Power:Super-strength and flight,
+Race:Amazons,
+Mbti:ENFJ,
+Enneagram:2w1"
+18,"Diana Prince ""Wonder Woman""",53,"['DC Animated Universe (Timmverse/Deniverse)','Justice League (2001)']","Age:Approximately 1,000,
+Power:Super-strength and flight,
+Race:Amazons,
+Mbti:ENFJ,
+Enneagram:2w1"
+18,"Diana Prince ""Wonder Woman""",54,"['DC Comics','Mainstream Universe 2011-present']","Age:23,
+Power:Super-strength and flight,
+Race:Amazons,
+Mbti:ENFJ,
+Enneagram:2w1"
+19,Barry Allen “The Flash”,55,"['DC Extended Universe', 'The Flash (2023)']","Age:28,
+Power:Speedster,
+Race:Human,
+Mbti:INFP,
+Enneagram:5w6"
+19,"Barry Allen ""The Flash""",56,"['Arrowverse','earth1','The Flash (2014)']","Age:34,
+Power:Speedster,
+Race:Human,
+Mbti:INFP,
+Enneagram:6w7"
+19,Barry Allen (Earth-2),57,"['Arrowverse','earth2','The Flash (2014)']","Age:Mid-to-late 20s,
+Power:-,
+Race:Human,
+Mbti:INFP,
+Enneagram:9w1"
+20,Arthur Curry “Aquaman”,58,"['DC Extended Universe', 'The Flash (2023)']","Age:early 40s,
+Power:hydrokinesis,
+Mbti:ESTP,
+Race:Atlantean/Human hybrid,
+Enneagram:8w7"
+20,Arthur Curry “Aquaman”,59,"['DC Comics','Mainstream Universe 2011-present']","Age:late 20s to early 30s.
+Power:hydrokinesis,
+Mbti:ENTJ,
+Race:Atlantean/Demigod hybrid,
+Enneagram:8w9"
+20,"Arthur Curry ""Aquaman""",60,"['animated television series ','Batman: The Brave and the Bold (2008)']","Age:30s or 40s,
+Power:hydrokinesis,
+Mbti:ESFJ,
+Race:Atlantean/Human hybrid,
+Enneagram:7w6"
+21,"Victor Stone ""Cyborg""",61,"['DC Comics','Mainstream Universe 2011-present']","Age:23
+Power:Cybernetics body,
+Race:Human,
+Mbti:INTP,
+Enneagram:5w6"
+21,"Victor Stone ""Cyborg""",62,"['DC Extended Universe','The Flash (2023)']","Age:31,
+Power:Cybernetics body,
+Race:Human,
+Mbti:ISTJ,
+Enneagram:5w6"
+21,"Victor Stone ""Cyborg""",63,"['DC Animated Universe','Teen Titans (2003)']","Age:18,
+Power:Cybernetics body,
+Race:Human,
+Mbti:ESTP,
+Enneagram:3w2"
+22,"Hal Jordan ""Green Lantern""",64,"['DC Comics','Mainstream Universe 2011-present']","Age:early 30s,
+Power:Green Light of Willpower,
+Race:Human,
+Mbti:ESFP,
+Enneagram:3w2"
+22,"Hal Jordan ""Green Lantern""",65,"['DC Extended Universe','Green Lantern(2011)']","Age:early 30s,
+Power:Green Light of Willpower,
+Race:Human,
+Mbti:ESFP,
+Enneagram:7w6"
+22,"Hal Jordan ""Green Lantern""",66,"['DC Animated Universe (Timmverse/Deniverse)','Justice League (2001)']","Age:late 30s to early 40s,
+Power:Green Light of Willpower,
+Race:Human,
+Mbti:ESTP,
+Enneagram:3w2"
+23,"Oliver Queen ""Green Arrow""",67,"['DC Animated Universe (Timmverse/Deniverse)','Justice League (2001)']","Age:Late 40s,
+Power:Master Archer,
+Race:Human,
+Mbti:ESTP,
+Enneagram:7w8"
+23,"Oliver Queen ""Green Arrow""",68,"['Arrowverse','Arrow season 8 (2020)']","Age:34,
+Power:Master Archer,
+Race:Human,
+Mbti:ESTP,
+Enneagram:8w7"
+23,"Oliver Queen ""Green Arrow""",69,"['DC Comics','Mainstream Universe 2011-present']","Age:34,
+Power:Master Archer,
+Race:Human,
+Mbti:ESTP,
+Enneagram:7w8"
+24,"J'onn J'onzz ""Martian Manhunter""",70,"[ 'DC Animated Universe (Timmverse/Deniverse)','Justice League (2001)']","Age:500,
+Power:Shape-shifting,
+Race:Green Martian,
+Mbti:INFJ,
+Enneagram:9w1"
+24,"J'onn J'onzz ""Martian Manhunter""",71,"['Arrowverse','earth38','Supergirl (2015)']","Age:600,
+Power:Shape-shifting,
+Race:Human,
+Mbti:INTJ,
+Enneagram:9w1"
+24,J’onn J’onnz “Martian Manhunter”,72,"['DC Comics', 'Mainstream Universe 1986-2011']","Age:1,000,
+Power:Shape-shifting,
+Race:Green Martian,
+Mbti:INFJ,
+Enneagram:1w9"
+25,"Kent Nelson ""Doctor Fate""",73,"['DC Extended Universe', 'Black Adam (2022)']","Age:69,
+Power:Helmet of Fate,
+Race:Human,
+Mbti:INFJ,
+Enneagram:5w6"
+25,"Kent Nelson ""Doctor Fate""",74,"[ 'DC Animated Universe (Timmverse/Deniverse)','Justice League (2001)']","Age:70s,
+Power:Helmet of Fate,
+Race:Human,
+Mbti:INTJ,
+Enneagram:5w6"
+25,"Kent Nelson ""Doctor Fate""",75,"['DC Comics','Mainstream Universe 1930s-2011']","Age:over 100,
+Power:Helmet of Fate,
+Race:Human,
+Mbti:INTJ,
+Enneagram:5w6"
+26,"Kara Zor-El ""Supergirl""",76,"['DC Comics','Mainstream Universe 2011-present']","Age:18,
+Power:Super Physical,
+Race:Kryptonian,
+Mbti:ESFJ,
+Enneagram:8w7"
+26,"Kara Zor-El ""Supergirl""",77,"['DC Extended Universe', 'The Flash (2023)']","Age:mid 20s,
+Power:Super Physical,
+Race:Kryptonian,
+Mbti:ISFP,
+Enneagram:4w5"
+26,"Kara Zor-El ""Supergirl""",78,"['Arrowverse','earth38','Supergirl (2015)']","Age:24,
+Power:Super Physical,
+Race:Kryptonian,
+Mbti:ENFJ,
+Enneagram:2w3"
+27,John Constantine,79,"['DC Comics','Mainstream Universe 2011-present']","Age:around 50-55,
+Power:Magic,
+Race:Human,
+Mbti:ENTP,
+Enneagram:7w8"
+27,John Constantine,80,['Constantine (2014)'],"Age:early 40s,
+Power:Magic,
+Race:Human,
+Mbti:ENTP,
+Enneagram:7w8"
+27,John Constantine,81,"['DC Animated Universe (Timmverse/Deniverse)','Constantine: City of Demons (2018)']","Age:around the 40-45,
+Power:Magic,
+Race:Human,
+Mbti:INTP,
+Enneagram:5w6"
+28,"Jaime Reyes  ""Blue Beetle""",82,"['DC Comics','Mainstream Universe 1986-2011']","Age:16,
+Power:Khaji Da scarab,
+Race:Human,
+Mbti:ENFP,
+Enneagram:9w1"
+28,"Jaime Reyes  ""Blue Beetle""",83,"['DC Extended Universe','Blue Beetle (2023)']","Age:22,
+Power:Khaji Da scarab,
+Race:Human,
+Mbti:ENFP,
+Enneagram:6w7"
+28,"Jaime Reyes  ""Blue Beetle""",84,"[''DC Animated Universe','Young Justice (2010)']","Age:16,
+Power:Khaji Da scarab,
+Race:Human,
+Mbti:ISFP,
+Enneagram:9w8"
+29,"Barbara Gordon ""Batgirl""",85,"['DC Comics','Mainstream Universe 2011-present']","Age:mid-20s,
+Power:Combat skill & Hacking,
+Mbti:INTJ,
+Race:Human,
+Enneagram:5w6"
+29,"Barbara Gordon ""Batgirl""",86,['Harley Quinn (2019)'],"Age:early-20s,
+Power:Combat skill & Hacking,
+Mbti:ISTJ,
+Race:Human,
+Enneagram:1w9"
+29,"Barbara Gordon ""Batgirl""",87,"['DC Animated Universe','Batman: The Animated Series (1992)']","Age:early-20s,
+Power:Combat skill&Hacking,
+Race:Human,
+Mbti:ESTJ,
+Enneagram:1w2"
+30," Koriand'r ""Starfire""",88,"[""Teen Titans (2003)""]","Age:early 20s,
+Power:absorb and project solar energy,
+Race:Tamaranean,
+Mbti:ENFP,
+Enneagram:2w3"
+30," Koriand'r ""Starfire""",89,"['DC Comics','Mainstream Universe 1950s-2011']","Age:around 18-25,
+Power:absorb and project solar energy,
+Race:Tamaranean,
+Mbti:ENFP,
+Enneagram:7w6"
+30," Koriand'r ""Starfire""",90,['Teen Titans Go!(2013)'],"Age:early teens,
+Power:absorb and project solar energy,
+Race:Tamaranean,
+Mbti:ENFP,
+Enneagram:7w6"
