@@ -1,27 +1,17 @@
 import asyncio
 import aiofiles
-from tools import (get_model)
+from tools import get_model
 import time
 import pandas as pd
-import random
 import json
 import re
 import logging
-from typing import List, Dict, Any
-import os
+from typing import Dict, Any
 
-# Set up logging
+from scripts.clean import clean_number
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-
-def clean_number(text):
-    text = re.sub(r'CID:\s*\d+,?', '', text)
-    text = text.encode('utf-8').decode('unicode_escape')
-    text = re.sub(r'\[.*?\]', '', text)
-    text = re.sub(r'\s+', ' ', text).strip()
-    text = text.replace(' ,', ',')
-    return text
 
 class AsyncDialogueGenerator:
     def __init__(self, model_name="gemini2-gen", model_name2="v3", max_concurrent_requests=5):
@@ -39,7 +29,6 @@ class AsyncDialogueGenerator:
         self.semaphore = asyncio.Semaphore(max_concurrent_requests)
 
     async def _call_model_async(self, model, prompt: str, delay: float = 0) -> str:
-        """Async wrapper for model calls with semaphore for rate limiting"""
         async with self.semaphore:
             if delay > 0:
                 await asyncio.sleep(delay)
@@ -54,7 +43,6 @@ class AsyncDialogueGenerator:
                 return f"Error: {str(e)}"
 
     async def generate_dialogue_async(self, target_uid: int) -> Dict[str, Any]:
-        """Generate dialogue asynchronously"""
         group_chars = self.df[self.df["UID"] == target_uid].copy()
         if len(group_chars) < 3:
             raise ValueError(f"Not enough characters in UID {target_uid} for dialogue. Need at least 3 characters.")
@@ -107,29 +95,22 @@ class AsyncDialogueGenerator:
                 "group_chars": group_chars.head(3)
             })
         
-        # Process dialogue turns in batches to maintain conversation flow
-        batch_size = 3  # Process a few turns at a time to maintain some order
+        batch_size = 3
         for batch_start in range(0, len(dialogue_tasks), batch_size):
             batch_end = min(batch_start + batch_size, len(dialogue_tasks))
             batch_tasks = dialogue_tasks[batch_start:batch_end]
-            
-            # Create async tasks for this batch
             async_tasks = []
             for task_data in batch_tasks:
-                if task_data["turn"] < 30:  # Skip last turn as it's empty
+                if task_data["turn"] < 30:
                     async_tasks.append(
                         self._generate_single_turn_async(task_data)
                     )
                 else:
-                    # Handle turn 30 (empty response)
                     async_tasks.append(
                         self._create_empty_turn_async(task_data)
                     )
             
-            # Wait for batch completion
             batch_results = await asyncio.gather(*async_tasks, return_exceptions=True)
-            
-            # Add results to dialogue in order
             for result in batch_results:
                 if isinstance(result, Exception):
                     logger.error(f"Turn generation failed: {result}")
@@ -139,7 +120,6 @@ class AsyncDialogueGenerator:
         return await self._create_output_json_async()
 
     async def _generate_single_turn_async(self, task_data: Dict[str, Any]) -> Dict[str, str]:
-        """Generate a single dialogue turn asynchronously"""
         turn = task_data["turn"]
         char_info = task_data["char_info"]
         situation = task_data["situation"]
@@ -151,11 +131,7 @@ class AsyncDialogueGenerator:
         else:
             input_prompt = self._create_character_prompt(char_info, situation, group_chars)
         
-
-        # Choose model based on turn (alternating)
         model_to_use = self.model1 if turn % 2 == 0 else self.model2
-        
-        # Add small delay to respect rate limits
         delay = (turn - 1) * 0.1  # Stagger requests
         
         response = await self._call_model_async(model_to_use, input_prompt, delay)
@@ -166,7 +142,7 @@ class AsyncDialogueGenerator:
         }
 
     async def _create_empty_turn_async(self, task_data: Dict[str, Any]) -> Dict[str, str]:
-        """Create empty turn for turn 30"""
+
         char_info = task_data["char_info"]
         return {
             "from": f"Name:{char_info['name']} Lore:{char_info['lore']} CID:{char_info['CID']}",
@@ -174,7 +150,6 @@ class AsyncDialogueGenerator:
         }
 
     def _create_first_turn_prompt(self, character, situation, group_chars) -> str:
-        """Create prompt for the first turn with full context about other characters"""
         other_chars = group_chars[group_chars["name"] != character["name"]]
         other_chars_desc = ""
         for _, row in other_chars.iterrows():
@@ -190,11 +165,8 @@ class AsyncDialogueGenerator:
         return prompt
     
     def _create_character_prompt(self, character, situation, group_chars) -> str:
-        """Create prompt for subsequent turns with minimal context"""
         name = character["name"]
         lore = character["lore"]
-        
-        # Get last dialogue if available
         last_dialogue = ""
         last_speaker = ""
         if self.dialogue:
@@ -212,7 +184,6 @@ Other characters present: {other_chars_desc} , remember answer in very short sen
         return prompt
     
     async def _create_output_json_async(self) -> Dict[str, Any]:
-        """Create output JSON with async choice generation"""
         choices_prompts = [
             "Continue the conversation with a surprising revelation",
             "Introduce a conflict between the characters",
@@ -225,8 +196,6 @@ Other characters present: {other_chars_desc} , remember answer in very short sen
             "Share a personal fear or vulnerability",
             "Accidentally reveal a secret to the other",
         ]
-        
-        # Generate all choices concurrently
         choice_tasks = []
         for i, prompt_letter in enumerate(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]):
             choice_tasks.append(
@@ -244,7 +213,6 @@ Other characters present: {other_chars_desc} , remember answer in very short sen
                 letter, choice_text = result
                 choices[letter] = choice_text
         
-        # Get target_uid from dialogue context (you may need to pass this differently)
         target_uid = 1  # This should be passed as parameter
         
         output = {
@@ -256,11 +224,8 @@ Other characters present: {other_chars_desc} , remember answer in very short sen
         return output
     
     async def _generate_choice_async(self, prompt_direction: str, choice_letter: str) -> tuple:
-        """Generate a single choice asynchronously"""
         if self.dialogue:
             last_speaker_info = self.dialogue[-1]["from"]
-            
-            # Get the dialogue from turn 29 (index 28) if available
             last_dialogue = ""
             if len(self.dialogue) >= 29:
                 last_dialogue = self.dialogue[28]["value"]
@@ -287,35 +252,28 @@ async def process_single_character_dialogue(generator: AsyncDialogueGenerator,
                                             target_uid: int,
                                             character_index: int,
                                             all_chars: pd.DataFrame) -> Dict[str, Any]:
-    """Process dialogue generation for a single character as interest character"""
+
     
     current_interest_char = all_chars.iloc[character_index]
     logger.info(f"Generating dialogue with {current_interest_char['name']} (CID: {current_interest_char['CID']}) as the interest character ({character_index+1}/{len(all_chars)})")
     
-    # Create a new ordering of characters with current character as first (interest character)
     ordered_chars = all_chars.copy()
     interest_char = ordered_chars.iloc[character_index].copy()
     ordered_chars = ordered_chars.drop(character_index).reset_index(drop=True)
     ordered_chars = pd.concat([pd.DataFrame([interest_char]), ordered_chars], ignore_index=True)
     
-    # Update the dataframe temporarily for this generation
     temp_df = generator.df.copy()
     temp_df = temp_df[temp_df["UID"] != target_uid]  # Remove all chars with this UID
     temp_df = pd.concat([temp_df, ordered_chars], ignore_index=True)  # Add back with new order
     generator.df = temp_df
     
     try:
-        # Generate dialogue
+
         dialogue_data = await generator.generate_dialogue_async(target_uid)
-        
-        # Add UID and CID information for easy filtering
         dialogue_data["uid"] = target_uid
         dialogue_data["cid"] = int(current_interest_char["CID"])
-        
-        # Save individual file
         filename = f"dialogue_uid_{target_uid}_cid_{int(current_interest_char['CID'])}.json"
         
-        # Ensure directory exists
         #os.makedirs("generated_results/multiversal_dialogue/1/", exist_ok=True)
         
         async with aiofiles.open(f"generated_results/multiversal_dialogue/re_2/{filename}", "w") as f:
@@ -329,7 +287,6 @@ async def process_single_character_dialogue(generator: AsyncDialogueGenerator,
         return None
 
 async def main():
-    """Main async function to orchestrate the entire pipeline"""
     generator = AsyncDialogueGenerator(model_name="gemini2", model_name2="v3", max_concurrent_requests=3)
     all_dialogues = []
     
@@ -349,8 +306,6 @@ async def main():
                 uid_tasks.append(
                     process_single_character_dialogue(generator, target_uid, i, all_chars)
                 )
-    
-    # Process all tasks with controlled concurrency
     batch_size = 5  # Process 5 dialogues concurrently
     
     for batch_start in range(0, len(uid_tasks), batch_size):
@@ -358,22 +313,17 @@ async def main():
         batch_tasks = uid_tasks[batch_start:batch_end]
         
         logger.info(f"Processing batch {batch_start//batch_size + 1}/{(len(uid_tasks) + batch_size - 1)//batch_size}")
-        
-        # Process batch
         batch_results = await asyncio.gather(*batch_tasks, return_exceptions=True)
-        
-        # Collect successful results
+    
         for result in batch_results:
             if isinstance(result, Exception):
                 logger.error(f"Batch task failed: {result}")
                 continue
             if result is not None:
                 all_dialogues.append(result)
-        
-        # Small delay between batches to be nice to the API
         await asyncio.sleep(1)
     
-    # Save all dialogues to a single file
+
     combined_filename = "all_dialogues.json"
     #os.makedirs("generated_results/multiversal_dialogue/re_2/", exist_ok=True)
     
@@ -385,5 +335,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    # Run the async main function
     asyncio.run(main())

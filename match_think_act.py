@@ -5,7 +5,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 from transformers import AutoTokenizer, AutoModel
 import torch
 
-# Load model and tokenizer
 tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/all-mpnet-base-v2')
 model = AutoModel.from_pretrained('sentence-transformers/all-mpnet-base-v2')
 
@@ -49,10 +48,6 @@ def process_entry(entry: dict) -> dict:
         entry["max_think_act_sim"] = float(max_sim)
         entry["most_similar_pair"] = {"thinking": best_pair[0], "acting": best_pair[1]}
     
-    # Get overall cosine similarity of the full string
-    #full_embed = embed(text)
-    #entry["full_context_similarity"] = float(cosine_similarity(full_embed, full_embed)[0][0])  # Always 1.0, or change if compared to something else
-    
     return entry
 
 def main(input_file: str, output_file: str):
@@ -66,6 +61,6 @@ def main(input_file: str, output_file: str):
 
 if __name__ == "__main__":
     import sys
-    input_path = sys.argv[1] if len(sys.argv) > 1 else "/Users/kunkerdthaisong/charactor_ai_org/generated_results/canon/scoring/canon_scoring_4o-mini.json"
-    output_path = sys.argv[2] if len(sys.argv) > 2 else "/Users/kunkerdthaisong/charactor_ai_org/generated_results/canon/scoring/canon_scoring_4o-mini_cosim.json"
+    input_path = sys.argv[1]
+    output_path = sys.argv[2]
     main(input_path, output_path)

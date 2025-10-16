@@ -7,31 +7,26 @@ from transformers import AutoTokenizer, AutoModel
 import torch
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# Load model and tokenizer globally to be shared across threads
-# This is thread-safe for inference.
-print("Loading model and tokenizer...")
 tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/all-mpnet-base-v2')
 model = AutoModel.from_pretrained('sentence-transformers/all-mpnet-base-v2')
-print("Model and tokenizer loaded.")
 
 def extract_pairs(text: str) -> List[Tuple[str, str]]:
-    """Extracts pairs of <thinking> and <acting> tags from text."""
+
     text = re.sub(r"[`]+", "", text).strip()
     thinking_tags = re.findall(r"<thinking>(.*?)</thinking>", text, re.DOTALL)
     acting_tags = re.findall(r"<acting>(.*?)</acting>", text, re.DOTALL)
     return list(zip(thinking_tags, acting_tags))
 
 def embed(text: str) -> torch.Tensor:
-    """Generates embeddings for a given text."""
+
     inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
     with torch.no_grad():
         model_output = model(**inputs)
-    # Mean pooling to get sentence embeddings
     embeddings = model_output.last_hidden_state.mean(dim=1)
     return embeddings
 
 def get_best_similarity(pairs: List[Tuple[str, str]]) -> Tuple[float, Tuple[str, str]]:
-    """Calculates the highest cosine similarity score among all pairs."""
+
     max_sim = -1.0
     best_pair = ("", "")
     for thinking, acting in pairs:
@@ -44,7 +39,7 @@ def get_best_similarity(pairs: List[Tuple[str, str]]) -> Tuple[float, Tuple[str,
     return max_sim, best_pair
 
 def process_entry(entry: dict) -> dict:
-    """Processes a single JSON entry to find the max similarity."""
+
     text = entry.get("think_act_analysis", "")
     pairs = extract_pairs(text)
     
@@ -59,10 +54,6 @@ def process_entry(entry: dict) -> dict:
     return entry
 
 def process_file(input_file: str):
-    """
-    Reads a JSON file, processes its contents, and saves the result
-    to a new file with a '_cosim.json' suffix.
-    """
     output_file = input_file.replace(".json", "_cosim.json")
     print(f"Processing: {os.path.basename(input_file)} -> {os.path.basename(output_file)}")
 
@@ -70,7 +61,6 @@ def process_file(input_file: str):
         with open(input_file, "r", encoding="utf-8") as f:
             data = json.load(f)
 
-        # Ensure data is a list of entries
         if not isinstance(data, list):
             print(f"Warning: Skipping {input_file}, as it does not contain a JSON list.")
             return None
@@ -89,14 +79,10 @@ def process_file(input_file: str):
         return None
 
 def main(input_dir: str):
-    """
-    Scans a directory for .json files and processes them concurrently.
-    """
     if not os.path.isdir(input_dir):
         print(f"Error: Directory not found at '{input_dir}'")
         return
 
-    # Find all .json files that are not _cosim.json files
     files_to_process = [
         os.path.join(input_dir, f)
         for f in os.listdir(input_dir)
@@ -109,7 +95,7 @@ def main(input_dir: str):
 
     print(f"Found {len(files_to_process)} files to process.")
 
-    # Use ThreadPoolExecutor for concurrent processing
+
     with ThreadPoolExecutor() as executor:
         future_to_file = {executor.submit(process_file, file_path): file_path for file_path in files_to_process}
         
@@ -129,11 +115,9 @@ def main(input_dir: str):
 
 if __name__ == "__main__":
     import sys
-    # Expect a directory path as a command-line argument
     if len(sys.argv) > 1:
         input_directory = sys.argv[1]
     else:
-        # Provide a default directory for convenience
         default_path = os.path.join(os.path.expanduser("~"), "charactor_ai_org", "generated_results", "dilemma", "scoring")
         print(f"Usage: python {sys.argv[0]} <directory_path>")
         print(f"No directory provided. Using default: '{default_path}'")

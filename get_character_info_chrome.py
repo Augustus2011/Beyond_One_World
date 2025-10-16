@@ -1,3 +1,7 @@
+"""
+this scrape code is Developed from https://github.com/Neph0s/InCharacter, 
+we would like to thank Yunze Xiao,Xintao Wang, et al  for his great work.
+"""
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -138,9 +142,8 @@ if __name__ == "__main__":
                 all_names.append(name)
                 all_descriptions.append(description)
                 all_category.append(category)
-                #get_character_id(character_info.get("character"))
+
                 time.sleep(1)
-                #print(f"Character Info: {character_info}")
                 
         except Exception as e:
             print(f"Error in main execution: {str(e)}")

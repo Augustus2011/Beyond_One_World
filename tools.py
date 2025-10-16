@@ -1,6 +1,3 @@
-#clean string
-import re
-import json
 
 #other apis
 import requests
@@ -25,9 +22,10 @@ import os
 load_dotenv()
 
 # clean string
-import re
 import json
 import os
+from scripts.clean import clean_markdown
+
 
 # other apis
 import requests
@@ -39,11 +37,16 @@ from google.genai import types
 # env
 from dotenv import load_dotenv
 
+
+# any model
+from model.LLM import LLM
+
 load_dotenv()
 
 
 def get_model(model_name):
     models = {
+        "your_model":your_model("your_huggingface_model_path").generate,
         "gemini2":google_gemini.gemini2_flash,
         "gemini2-5":google_gemini.gemini2_5_flash,
         "gemini2-5-think":google_gemini.gemini2_5_flash_thinking,
@@ -60,41 +63,6 @@ def get_model(model_name):
     return models.get(model_name, None)
 
 
-
-def anonymize_path(file_path: str) -> str:
-    """
-    Anonymize file paths by replacing user-specific directories with generic placeholders.
-    """
-    import re
-    
-    # Replace common user directory patterns
-    patterns = [
-        (r'/Users/[^/]+/', '/Users/[USER]/'),
-        (r'C:\\Users\\[^\\]+\\', 'C:\\Users\\[USER]\\'),
-        (r'/home/[^/]+/', '/home/[USER]/'),
-        (r'C:\\Users\\[^\\]+\\Documents\\', 'C:\\Users\\[USER]\\Documents\\'),
-        (r'/Users/[^/]+/Documents/', '/Users/[USER]/Documents/'),
-    ]
-    
-    anonymized_path = file_path
-    for pattern, replacement in patterns:
-        anonymized_path = re.sub(pattern, replacement, anonymized_path)
-    
-    return anonymized_path
-
-
-def safe_file_operation(operation, file_path: str, *args, **kwargs):
-    """
-    Safely perform file operations with anonymized path logging.
-    """
-    try:
-        anonymized_path = anonymize_path(file_path)
-        print(f"File operation on: {anonymized_path}")
-        return operation(file_path, *args, **kwargs)
-    except Exception as e:
-        anonymized_path = anonymize_path(file_path)
-        print(f"Error in file operation on {anonymized_path}: {str(e)}")
-        raise
 
 
 # ---------------- GEMINI CONFIGS ---------------- #
@@ -136,12 +104,6 @@ SAFETY_SETTINGS = [
 
 
 
-
-
-
-
-
-
 def get_processed_cids(jsonl_path):
     processed_cids = set()
     if os.path.exists(jsonl_path):
@@ -149,57 +111,13 @@ def get_processed_cids(jsonl_path):
             for line in f:
                 try:
                     data = json.loads(line.strip())
-                    processed_cids.add(data["CID"])  # Track already processed CIDs
+                    processed_cids.add(data["CID"])
                 except json.JSONDecodeError:
                     print("Warning: Skipping corrupted line in JSONL file")
     return processed_cids
 
-def cut_consequence(text)->str:
-    text=text.lower()
-    patterns = [
-        r'resolution:?.*',  
-        r'the inner conflict:?.*',
-        r'conclusion:?.*',
-        r'scene conclusion:?.*',
-        r'conclusion of the scene:?.*',
-        r'outcome reflection:?.*',
-        r'reflection:?.*',
-        r'resolution proposal:?.*',
-        r'choice and reflection:?.*',
-        r'off the scene:?.*',
-        r'interlude:?.*',
-        r'proposal:?.*',
-        r'consequence:?.*',
-    ]
 
-    for pattern in patterns:
-        text = re.sub(pattern, '', text, flags=re.DOTALL | re.IGNORECASE)
-    return text
 
-def clean_event(event):
-    event = re.sub(r"\s+", " ", event.strip())
-    
-    if "_" in event:
-        event = " ".join(dict.fromkeys(event.replace("_", "").split()))
-    return event
-
-def clean_markdown(text)->str:
-    text = re.sub(r'\*\*\*(.*?)\*\*\*', r'\1', text)
-    text = re.sub(r'(\*\*|__)(.*?)\1', r'\2', text)
-    text = re.sub(r'(\*|_)(.*?)\1', r'\2', text)
-    text = re.sub(r'~~(.*?)~~', r'\1', text)
-
-    text = re.sub(r'^\s*#{1,6}\s*(.*?)$', r'\1\n', text, flags=re.MULTILINE)
-    text = re.sub(r'^\s*[-*+]\s+', '', text, flags=re.MULTILINE)
-    text = re.sub(r'^\s*\d+\.\s+', '', text, flags=re.MULTILINE)
-    text = re.sub(r'`([^`]+)`', r'\1', text)
-    text = re.sub(r'```.*?```', '', text, flags=re.DOTALL)
-    text = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', text)
-    text = re.sub(r'!\[([^\]]*)\]\([^\)]+\)', r'\1', text)
-    text = re.sub(r'^\s*>+\s?', '', text, flags=re.MULTILINE)
-    text = re.sub(r'</?([a-zA-Z0-9]+)(?:\s[^>]*)?>', lambda m: m.group(0) if m.group(0).startswith('<') and m.group(0).endswith('>') else '', text)
-    text = re.sub(r'\n{2,}', '\n\n', text).strip()
-    return text
 
 
 #helper function for cr. anthropic cookbook
@@ -231,7 +149,6 @@ def return_thinking_response(response):
     for block in response.content:
         if block.type == "thinking":
             output.append("\n🧠 THINKING BLOCK:")
-            # Show truncated thinking for readability
             thinking_text = block.thinking[:500] + "..." if len(block.thinking) > 500 else block.thinking
             output.append(thinking_text)
         elif block.type == "redacted_thinking":
@@ -243,6 +160,27 @@ def return_thinking_response(response):
     
     output.append("\n==== END RESPONSE ====")
     return "\n".join(output)
+
+# custom you trained model
+class your_model(LLM):
+    from transformers import AutoTokenizer, AutoModelForCausalLM
+
+    def __init__(self,hf_path:str=""):
+        self.hf_path=hf_path
+
+        self.tokenizer = AutoTokenizer.from_pretrained(self.hf_path)
+        self.model = AutoModelForCausalLM.from_pretrained(self.hf_path)
+
+    def generate(self, prompt: str, **kwargs) -> str:
+        #llama3 template adjust your model here
+        messages = [
+            {"role": "user", "content": f"{prompt}"},
+        ]
+        inputs = self.tokenizer.apply_chat_template(messages,add_generation_prompt=True,tokenize=True,return_dict=True,return_tensors="pt").to("gpu")
+        outputs = self.model.generate(**inputs, max_new_tokens=40)
+        return self.tokenizer.decode(outputs[0][inputs["input_ids"].shape[-1]:])
+    
+
 
 class sonnet:
     def sonnet_37(input_prompt:str="")->str:
@@ -500,7 +438,7 @@ class hyperbolic:
 
 def deepseek_v3(input_prompt:str="")->str:
     url = "https://api.deepseek.com/chat/completions"
-    
+    key = os.getenv("R1_API_KEY")
     if not key:
         raise ValueError("R1_API_KEY is missing from environment variables")
 

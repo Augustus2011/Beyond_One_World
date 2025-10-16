@@ -7,7 +7,6 @@ import os
 
 st.set_page_config(page_title="Annotation Tool", page_icon="📑", layout="wide")
 
-# Upload JSONL files
 uploaded_files = st.sidebar.file_uploader("Upload JSONL files", type=["jsonl"], accept_multiple_files=True)
 
 merged_file = "merged_annotations.jsonl"
@@ -17,7 +16,7 @@ if uploaded_files:
         content = uploaded_file.getvalue().decode("utf-8").splitlines()
         for line in content:
             record = json.loads(line)
-            record["source_file"] = uploaded_file.name  # Store the original filename
+            record["source_file"] = uploaded_file.name
             all_data.append(record)
     
     with open(merged_file, "w", encoding="utf-8") as f:
@@ -25,7 +24,7 @@ if uploaded_files:
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
     st.sidebar.success("Files merged successfully!")
 
-# Load JSONL files
+
 jsonl_files = glob.glob("*.jsonl")
 st.sidebar.title("📂 Select Annotation File")
 selected_file = st.sidebar.selectbox("Choose a JSONL file", jsonl_files)
@@ -35,8 +34,6 @@ if selected_file:
         data = [json.loads(line) for line in f]
     
     df = pd.DataFrame(data)
-    
-    # Add new columns with default values (e.g., None or 0)
     if "thinking_score" not in df.columns:
         df["thinking_score"] = None
     if "acting_score" not in df.columns:
@@ -82,15 +79,15 @@ if selected_file:
     with col3:
         if st.button("⬅️ Previous CID") and st.session_state.current_index > 0:
             st.session_state.current_index -= 1
-            st.session_state.row_index = 0  # Reset row index
+            st.session_state.row_index = 0
             st.rerun()
     with col4:
         if st.button("➡️ Next CID") and st.session_state.current_index < len(unique_cids) - 1:
             st.session_state.current_index += 1
-            st.session_state.row_index = 0  # Reset row index
+            st.session_state.row_index = 0
             st.rerun()
     
-    # Table for annotation
+
     st.subheader("📋 Annotation Table")
     editable_df = st.data_editor(cid_data, num_rows="dynamic")
     

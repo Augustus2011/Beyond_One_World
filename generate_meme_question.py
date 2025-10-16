@@ -1,18 +1,9 @@
-from tools import (get_model)
+from tools import get_model
 import time
 import pandas as pd
-import random
 import json
 import re
-
-def clean_number(text):
-    text = re.sub(r'CID:\s*\d+,?', '', text)
-    text = text.encode('utf-8').decode('unicode_escape')
-    text = re.sub(r'\[.*?\]', '', text)
-    text = re.sub(r'\s+', ' ', text).strip()
-    text = text.replace(' ,', ',')
-    
-    return text
+from scripts.clean import clean_number
     
 
 class DialogueGenerator:
@@ -54,21 +45,15 @@ class DialogueGenerator:
                 current_char = available_non_interest.iloc[0]
                 last_cid = current_char["CID"]
             elif turn == 30:
-                # Always interest character at last turn
                 current_char = interest_char
                 last_cid = current_char["CID"]
             else:
                 if turn % 3 == 0 and turn != 30:
-                    # Every 3rd turn is the interest character
                     current_char = interest_char
                     last_cid = current_char["CID"]
                 else:
-                    # Otherwise, select from non-interest characters
-                    # Ensure no immediate repeat
                     next_index = (char_index + 1) % len(available_non_interest)
                     candidate = available_non_interest.iloc[next_index]
-                    
-                    # If candidate has same CID as last one, skip to next
                     if candidate["CID"] == last_cid:
                         next_index = (next_index + 1) % len(available_non_interest)
                         candidate = available_non_interest.iloc[next_index]
@@ -108,7 +93,6 @@ class DialogueGenerator:
         return self._create_output_json()
     
     def _create_first_turn_prompt(self, character, situation, group_chars)->str:
-        """Create prompt for the first turn with full context about other characters"""
         other_chars = group_chars[group_chars["name"] != character["name"]]
         other_chars_desc = ""
         for _, row in other_chars.iterrows():
@@ -124,7 +108,6 @@ class DialogueGenerator:
         return prompt
     
     def _create_character_prompt(self, character, situation, group_chars)->str:
-        """Create prompt for subsequent turns with minimal context"""
         name = character["name"]
         lore = character["lore"]
         last_dialogue = self.dialogue[-1]["value"]
@@ -169,8 +152,6 @@ Other characters present: {other_chars_desc} , remember answer in very short sen
     def _generate_choice(self, prompt_direction):
         if self.dialogue:
             last_speaker_info = self.dialogue[-1]["from"]
-            
-            # Get the dialogue from turn 29 (index 28) if available
             last_dialogue = ""
             if len(self.dialogue) >= 29:
                 last_dialogue = self.dialogue[28]["value"]
@@ -204,37 +185,24 @@ if __name__ == "__main__":
             continue
         else:
             print(f"Found {len(all_chars)} characters in UID {target_uid}")
-            
-            # Generate dialogue for each character as the interest character
             for i in range(len(all_chars)):
                 current_interest_char = all_chars.iloc[i]
                 print(f"\nGenerating dialogue with {current_interest_char['name']} (CID: {current_interest_char['CID']}) as the interest character ({i+1}/{len(all_chars)})")
-                
-                # Create a new ordering of characters with current character as first (interest character)
                 ordered_chars = all_chars.copy()
                 interest_char = ordered_chars.iloc[i].copy()
                 ordered_chars = ordered_chars.drop(i).reset_index(drop=True)
                 ordered_chars = pd.concat([pd.DataFrame([interest_char]), ordered_chars], ignore_index=True)
-                
-                # Update the dataframe temporarily for this generation
                 temp_df = generator.df.copy()
-                temp_df = temp_df[temp_df["UID"] != target_uid]  # Remove all chars with this UID
-                temp_df = pd.concat([temp_df, ordered_chars], ignore_index=True)  # Add back with new order
+                temp_df = temp_df[temp_df["UID"] != target_uid]
+                temp_df = pd.concat([temp_df, ordered_chars], ignore_index=True)
                 generator.df = temp_df
                 
                 try:
-                    # Generate dialogue
                     dialogue_json_str = generator.generate_dialogue(target_uid)
                     dialogue_data = json.loads(dialogue_json_str)
-                    
-                    # Add UID and CID information for easy filtering
                     dialogue_data["uid"] = target_uid
                     dialogue_data["cid"] = int(current_interest_char["CID"])
-                    
-                    # Add to our collection
                     all_dialogues.append(dialogue_data)
-                    
-                    # Also save individual file for backward compatibility
                     filename = f"dialogue_uid_{target_uid}_cid_{int(current_interest_char['CID'])}.json"
                     with open("generated_results/multiversal_dialogue/1/"+filename, "w") as f:
                         f.write(dialogue_json_str)
@@ -243,9 +211,8 @@ if __name__ == "__main__":
                 except Exception as e:
                     print(f"Error generating dialogue for UID {target_uid}, CID {current_interest_char['CID']}: {e}")
                 
-                time.sleep(0.5)  # Pause between generations
+                time.sleep(0.5)
     
-    # Save all dialogues to a single file
     combined_filename = "all_dialogues.json"
     with open("generated_results/multiversal_dialogue/1/"+combined_filename, "w") as f:
         json.dump(all_dialogues, f, indent=2)

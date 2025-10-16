@@ -1,40 +1,38 @@
+"""
+this scrape code is Developed from https://github.com/Neph0s/InCharacter, 
+we would like to thank Yunze Xiao,Xintao Wang, et al  for his great work.
+"""
+
 import requests
 from bs4 import BeautifulSoup
 from msedge.selenium_tools import EdgeOptions
 from msedge.selenium_tools import Edge
 import json
 edge_options = EdgeOptions()
-edge_options.use_chromium = True  # if we miss this line, we can't make Edge headless
-# A little different from Chrome cause we don't need two lines before 'headless' and 'disable-gpu'
+edge_options.use_chromium = True  
 edge_options.add_argument('headless')
 edge_options.add_argument('disable-gpu')
 driver = Edge(executable_path='/usr/local/bin/msedgedriver', options=edge_options)
-edge_options.add_experimental_option('excludeSwitches', ['enable-logging'])  # This line hides the DevTools console messages
+edge_options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
 
 def get_character_id(character_name):
     url = 'https://www.personality-database.com/search?keyword='
     url+=character_name.replace(" ","%20")
-    # Send a GET request to the URL
     driver.get(url)
     driver.implicitly_wait(10)
-    # Check if the request was successful
     link=driver.find_elements_by_class_name("profile-card-link")
     if(link==[]):
         return None
     target=[]
     for item in link:
-    # Parse the HTML content of the page
         html_content = item.get_attribute('outerHTML')
         soup = BeautifulSoup(html_content, 'html.parser')
-        # Find the 'href' attribute of the 'a' tag
         profile_link = soup.find('a', class_='profile-card-link')['href']
-        # Extracting the profile number (202055) from the href attribute
         print(profile_link)
         if(character_name.split(" ")[0].lower() in profile_link):
             profile_number = profile_link.split('/')[2]
             target.append(profile_number)
-    # Extract href attribute from each 'a' tag
     if(target==[]):
         print("None")
         return
@@ -86,4 +84,3 @@ def get_character_info(id,character_name):
     with open("characters/"+character_name.replace(" ","")+".json", 'w+',encoding="utf-8") as json_file:
         json.dump(result, json_file)
 print(get_character_id("zhongli"))
-#print(get_character_info(get_character_id("socrates"),"Socrates"))

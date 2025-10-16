@@ -76,14 +76,12 @@ def canon_event(data, model, output_path, cot=False):
                 lore = source
 
                 print(f"Processing: {name} (CID: {cid})")
-                # Process events from different life stages
                 for stage, events in item["Events"].items():
                     for event in events:
                         question = event.get("question", "")
                         options = event.get("options", [])
                         correct_answer = event.get("correct_answer", "")
                         
-                        # Format question with options
                         formatted_question = f"{question}\n" + "\n".join(options) if options else question
                         
                         input_prompt = f"You are playing the role of {name}, act and think as {name}, from {lore}\n <question> {formatted_question} <question/>"
@@ -102,35 +100,27 @@ def canon_event(data, model, output_path, cot=False):
                         f.write(json.dumps(json_obj, ensure_ascii=False) + "\n")
 
 def reprocess_failed_results(input_file: str, output_file: str, model_func: callable, task: str, cot: bool = False, cross_character: bool = False):
-    """Reprocess failed results with synchronous execution, supporting both individual and cross-character interactions"""
     df = pd.read_csv("heros_profile_aa.csv")
     
-    # Load original data files using pandas
+
     dilemmas_df = pd.read_json("character_dilemmas.json", lines=False)
     canon_df = pd.read_json("characters_canon_events.json", lines=False)
-    
-    # Create lookup dictionaries for faster access
-    # dilemmas_by_cid = dilemmas_df.set_index('CID').to_dict()
     canon_by_cid = canon_df.set_index('CID').to_dict()
     
-    # Read input file and process line by line
     with open(input_file, "r", encoding="utf-8") as infile, open(output_file, "w", encoding="utf-8") as outfile:
         completed_count = 0
-        total_lines = sum(1 for _ in open(input_file, 'r'))  # Count total lines
+        total_lines = sum(1 for _ in open(input_file, 'r'))
         reprocess_count = 0
         
-        infile.seek(0)  # Reset file pointer
+        infile.seek(0)
         
         for num_line, line in enumerate(infile):
             data = json.loads(line)
-            
-            # Check if this is a failed result (error message or very short response)
             if re.search(r'Error: ', data.get('answers', '')) or re.search(r'I notice that your request is incomplete',data.get('answers','')) or len(data.get('answers', '')) < 5:
                 reprocess_count += 1
                 input_prompt = ""
                 
                 if cross_character:
-                    # Handle cross-character interaction format
                     answerer_cid = data.get("answerer_CID", "")
                     answerer_name = data.get("answerer_name", "")
                     questioner_cid = data.get("questioner_CID", "")
@@ -141,7 +131,6 @@ def reprocess_failed_results(input_file: str, output_file: str, model_func: call
                     print(f"Reprocessing cross-character ({reprocess_count}): {answerer_name} (CID: {answerer_cid}) answering {questioner_name}'s question")
                     
                     if task == "dilemma":
-                        # Get dilemma data from original file
                         dilemma_type_=data.get("original_dilemma_type")
                         
                         questioner_dilemma=dilemmas_df[(dilemmas_df["CID"] == questioner_cid) &(dilemmas_df["dilemma_type"]==dilemma_type_)]
@@ -152,11 +141,8 @@ def reprocess_failed_results(input_file: str, output_file: str, model_func: call
                         consequence_a = questioner_dilemma["consequence_A"]
                         consequence_b = questioner_dilemma["consequence_B"]
                         
-                        # Format dilemma consistently
                         dilemma = f"{situation}\nChoice A: {choice_a} Consequence A: {consequence_a}\nChoice B: {choice_b} Consequence B: {consequence_b}"
                         dilemma_type = dilemma_type_.split("_")[0]
-                        
-                        # Map dilemma types to appropriate questions
                         if dilemma_type == "Save the One You Love vs. Save the Greater Good":
                             d_detail = "What will you choose between A) Save the One You Love vs B) Save the Greater Good"
                         elif dilemma_type == "Hero or Villain":
@@ -176,10 +162,9 @@ def reprocess_failed_results(input_file: str, output_file: str, model_func: call
                             input_prompt = base_prompt
                     
                     elif task == "canon":
-                        # Get canon data from original file
+
                         questioner_canon = canon_by_cid.get(questioner_cid, {})
                         if "Events" in questioner_canon:
-                            # Get the first event's question (you might want to modify this based on your needs)
                             first_stage = next(iter(questioner_canon["Events"].values()))
                             if first_stage:
                                 event = first_stage[0]
@@ -195,7 +180,6 @@ def reprocess_failed_results(input_file: str, output_file: str, model_func: call
                                     input_prompt = base_prompt
                 
                 else:
-                    # Handle individual character format (original logic)
                     cid = data.get("CID", "")
                     name = data.get("name", "")
                     lore = data.get("lore", "")
@@ -217,7 +201,6 @@ def reprocess_failed_results(input_file: str, output_file: str, model_func: call
                         else:
                             d_detail = "What will you choose between A) or B) ?"
 
-                        #dilemma = clean_consequence(dilemma)
                         input_prompt = f"You are playing the role of {name}, act and think as {name},from {lore}, the situation is {dilemma}\n <question>{d_detail}<question/>"
                     
 
@@ -310,7 +293,7 @@ def main():
         elif args.task == "canon":
             canon_event(data, model, args.output, cot=args.cot)
         
-        # elif args.task == "dialogue":
+        # elif args.task == "dialogue": future work
         #     process_dialogue(data, model, args.output)
 
 if __name__ == "__main__":

@@ -4,27 +4,12 @@ A comprehensive framework for evaluating and generating character-based AI respo
 
 ## 🎯 Overview
 
-This framework provides a standardized approach to:
-- **Character Dilemma Resolution**: Evaluate how different AI models handle moral and ethical dilemmas in character-specific contexts
-- **Canonical Event Generation**: Generate character-appropriate responses to canonical events from their source material
-- **Multiversal Dialogue**: Create cross-character interactions and dialogues
-- **Automated Scoring**: Evaluate character consistency and role-playing quality using AI judges
+- **Character Dilemma**: Evaluate how different AI models handle moral and ethical dilemmas in character-specific contexts.
+- **Canonical Event**: Evaluate characters responses to canonical events.
+- **Multiversal Dialogue**: Create cross-character interactions and dialogues #future work.
+- **Automated Scoring**: Evaluate character consistency and role-playing quality using AI judges.
+- **label platform**: for experts to construct dataset.
 
-## 🚀 Features
-
-### Multi-Model Support
-- **Google Gemini**: 2.0 Flash, 2.5 Flash (with thinking capabilities)
-- **Anthropic Claude**: 3.5 Sonnet, 3.7 Sonnet (with thinking capabilities)
-- **OpenAI**: GPT-4o Mini
-- **DeepSeek**: R1, V3 models
-- **Hyperbolic**: Various model integrations
-
-### Core Capabilities
-- **Concurrent Processing**: Async and concurrent processing for large-scale evaluations
-- **Path Anonymization**: Privacy-preserving file operations with anonymized logging
-- **Flexible Data Formats**: Support for CSV, JSON, and JSONL input/output
-- **Automated Scoring**: AI-powered evaluation of character consistency and role-playing quality
-- **Reprocessing Pipeline**: Automatic retry and error handling for failed API calls
 
 ## 📁 Project Structure
 
@@ -41,15 +26,19 @@ charactor_ai/
 ├── match_think_act_con.py           # Concurrent think-act matching
 ├── label_platform1.py               # Annotation platform
 ├── label_platform2.py               # Enhanced annotation platform
+├── model/
+│   └── LLM.py        #abstract class to be implemented with your llm-model
 ├── scripts/
-│   └── analysis.py                  # Data analysis utilities
+│   └── clean.py                  # clean text
 ├── generated_results/               # Output directory
 │   ├── canon/                       # Canonical event results
 │   ├── dilemma/                     # Dilemma resolution results
 │   └── multiversal_dialogue/        # Dialogue results
 ├── annotated_results/               # Human annotations
-├── all_character_data.csv          # Character dataset
-├── heros_profile_aa.csv            # Character profiles
+├── all_character_data.csv          # Character dataset 
+├── character_dilemmas.json         # required dataset on our hf
+├── characters_canon_events.json    # required dataset on our hf
+├── heros_profile_aa.csv            # required dataset on our hf
 └── requirements.txt                 # Dependencies
 ```
 
@@ -57,13 +46,12 @@ charactor_ai/
 
 ### Prerequisites
 - Python 3.8+
-- API keys for supported models
 
 ### Setup
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd charactor_ai
+https://github.com/Augustus2011/Beyond_One_World.git
+cd Beyond_One_World
 ```
 
 2. Install dependencies:
@@ -88,13 +76,13 @@ Generate character responses to moral dilemmas:
 
 ```bash
 # Basic dilemma generation
-python generate_answer.py --model gemini2 --data all_character_data.csv --output ./generated_results/dilemma_gemini2.jsonl --task dilemma
+python generate_answer.py --model gemini2 --data character_dilemmas.json --output ./generated_results/dilemma_gemini2.jsonl --task dilemma
 
 # With chain-of-thought reasoning
-python generate_answer.py --model sonnet3-7-think --data all_character_data.csv --output ./generated_results/dilemma_claude_thinking.jsonl --task dilemma --cot
+python generate_answer.py --model sonnet3-7-think --data character_dilemmas.json --output ./generated_results/dilemma_claude_thinking.jsonl --task dilemma --cot
 
 # Clean consequence text
-python generate_answer.py --model r1 --data all_character_data.csv --output ./generated_results/dilemma_r1_clean.jsonl --task dilemma --clean_consequence
+python generate_answer.py --model r1 --data character_dilemmas.json --output ./generated_results/dilemma_r1_clean.jsonl --task dilemma --clean_consequence
 ```
 
 ### Canonical Event Generation
@@ -103,10 +91,10 @@ Generate character responses to canonical events:
 
 ```bash
 # Basic canon event generation
-python generate_answer.py --model sonnet3-7 --data all_character_data.csv --output ./generated_results/canon_claude.jsonl --task canon
+python generate_answer.py --model sonnet3-7 --data characters_canon_events.json --output ./generated_results/canon_claude.jsonl --task canon
 
 # With thinking capabilities
-python generate_answer.py --model gemini2-5-think --data all_character_data.csv --output ./generated_results/canon_gemini_thinking.jsonl --task canon
+python generate_answer.py --model gemini2-5-think --data characters_canon_events.json --output ./generated_results/canon_gemini_thinking.jsonl --task canon
 ```
 
 ### Concurrent Processing
@@ -115,13 +103,13 @@ For large-scale processing, use the concurrent versions:
 
 ```bash
 # Concurrent dilemma generation
-python generate_answer_con.py --model r1 --data all_character_data.csv --output ./generated_results/dilemma_r1_concurrent.jsonl --task dilemma --max_con 10
+python generate_answer_con.py --model r1 --data character_dilemmas.json --output ./generated_results/dilemma_r1_concurrent.jsonl --task dilemma --max_con 10
 
 # Concurrent canon generation
-python generate_answer_con.py --model sonnet3-7 --data all_character_data.csv --output ./generated_results/canon_claude_concurrent.jsonl --task canon --max_con 8
+python generate_answer_con.py --model sonnet3-7 --data character_dilemmas.json --output ./generated_results/canon_claude_concurrent.jsonl --task canon --max_con 8
 ```
 
-### Create cross-character dialogues:
+### Create character dialogues(future work):
 
 ```bash
 # Synchronous dialogue generation
@@ -172,6 +160,7 @@ Models are configured in `tools.py`:
 ```python
 def get_model(model_name):
     models = {
+        "your_model":your_model("your_huggingface_model_path").generate,
         "gemini2": google_gemini.gemini2_flash,
         "gemini2-5": google_gemini.gemini2_5_flash,
         "gemini2-5-think": google_gemini.gemini2_5_flash_thinking,
@@ -186,7 +175,7 @@ def get_model(model_name):
     return models.get(model_name, None)
 ```
 
-
+<!-- 
 ## 📈 Data Format
 
 ### Input Data Format
@@ -211,46 +200,28 @@ Results are saved in JSONL format with the following structure:
   "thinking": "Internal reasoning (if available)",
   "acting": "External behavior (if available)",
 }
+``` -->
+
+## Label Platform
+
+```
+docker-compose up --build
 ```
 
-## 🧪 Evaluation Metrics
 
-### Scoring System
 
-The framework uses AI-powered evaluation with the following metrics:
 
-1. **Thinking Score (0-5)**: How well the internal reasoning matches the character
-2. **Acting Score (0-5)**: How well the external behavior matches the character
-
-### Evaluation Process
-
-1. **Response Generation**: Generate character responses using various models
-2. **Think-Act Separation**: Extract internal reasoning and external behavior
-3. **AI Scoring**: Use AI judges to evaluate character consistency
-4. **Analysis**: Aggregate and analyze results
-
-## 🔬 Research Applications
-
-This framework is designed for research in:
-
-- **Character Consistency**: How well AI models maintain character consistency across different scenarios
-- **Moral Reasoning**: How different models handle ethical dilemmas in character-specific contexts
-- **Cross-Model Comparison**: Systematic comparison of different AI models' character role-playing abilities
-- **Human-AI Interaction**: Understanding how AI characters might interact in multiversal scenarios
 
 ## 📚 Citation
 
-If you use this framework in your research, please cite:
-
 ```bibtex
-@software{character_ai_framework,
+@misc{character_ai_framework,
   title={Character AI Research Framework},
   author={[Your Name]},
-  year={2024},
-  url={https://github.com/[your-username]/charactor_ai}
+  year={2025},
+  url=https://github.com/Augustus2011/Beyond_One_World.git
 }
 ```
 ---
 
-**Note**: This framework is designed for research purposes. Please ensure responsible use of AI models and respect for intellectual property rights when working with character data.# Beyond_One_World
-# Beyond_One_World
+

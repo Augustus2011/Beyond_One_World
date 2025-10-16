@@ -10,7 +10,9 @@ generate_answer_og.py
 *.ipynb
 *scripts
 test.py
-*generated_results
+*generated_results/*
 *.env
 annotated_results/anno1
 annotated_results/anno2
+
+clean_characters_data.json
