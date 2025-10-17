@@ -215,13 +215,12 @@ docker-compose up --build
 ## 📚 Citation
 
 ```bibtex
-@misc{character_ai_framework,
-  title={Character AI Research Framework},
-  author={[Your Name]},
-  year={2025},
-  url=https://github.com/Augustus2011/Beyond_One_World.git
+@misc{2510.14351,
+Author = {Perapard Ngokpol and Kun Kerdthaisong and Pasin Buakhaw and Pitikorn Khlaisamniang and Supasate Vorathammathorn and Piyalitt Ittichaiwong and Nutchanon Yongsatianchot},
+Title = {Beyond One World: Benchmarking Super Heros in Role-Playing Across Multiversal Contexts},
+Year = {2025},
+Eprint = {arXiv:2510.14351},
 }
-```
 ---
 
 
