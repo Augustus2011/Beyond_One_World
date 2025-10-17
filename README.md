@@ -221,6 +221,5 @@ Title = {Beyond One World: Benchmarking Super Heros in Role-Playing Across Multi
 Year = {2025},
 Eprint = {arXiv:2510.14351},
 }
----
-
+```
 
