@@ -1,4 +1,4 @@
-# Character AI Research Framework
+#Beyond One World
 
 A comprehensive framework for evaluating and generating character-based AI responses using multiple large language models. This research tool enables systematic evaluation of character role-playing capabilities across different AI models through dilemma resolution, canonical event generation, and multiversal dialogue creation.
 
