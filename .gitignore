@@ -8,11 +8,12 @@ generate_answer_og.py
 *.dylib
 *.xlsx
 *.ipynb
-*scripts
-test.py
-*generated_results/*
+generated_results/*
 *.env
-annotated_results/anno1
-annotated_results/anno2
+*.jsonl
+*.json
+*.csv
+
+/annotated_results/*/*
 
 clean_characters_data.json
