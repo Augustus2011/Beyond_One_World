@@ -10,6 +10,15 @@ A comprehensive framework for evaluating and generating character-based AI respo
 - **Automated Scoring**: Evaluate character consistency and role-playing quality using AI judges.
 - **label platform**: for experts to construct dataset.
 
+## 💽 Download dataset
+
+```bash
+from huggingface_hub import snapshot_download
+
+#augustus2011/beyond_one_world-dilemma,augustus2011/beyond_one_world-cannon,augustus2011/beyond_one_world-heros
+snapshot_download(repo_id="augustus2011/beyond_one_world-dilemma", local_dir="ultrachat_local", local_dir_use_symlinks=False, repo_type="dataset")
+```
+
 
 ## 📁 Project Structure
 
