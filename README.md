@@ -1,5 +1,6 @@
 # Beyond One World
 [![Paper](https://img.shields.io/badge/Paper-arXiv-red)](https://arxiv.org/abs/2510.14351)
+[![Hugging Face](https://img.shields.io/badge/🤗-Hugging%20Face-orange)](https://huggingface.co/collections/Character-lab/emlp-wordplay-2025)
 
 A comprehensive framework for evaluating and generating character-based AI responses using multiple large language models. This research tool enables systematic evaluation of character role-playing capabilities across different AI models through dilemma resolution, canonical event generation, and multiversal dialogue creation.
 
